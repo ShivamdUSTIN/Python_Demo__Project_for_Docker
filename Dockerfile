@@ -42,3 +42,22 @@ EXPOSE 8000
 # Starts Django development server on 0.0.0.0:8000 (so it’s accessible from outside the container).
 
 CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+
+
+#Doubt CMD is also run command and RUN is itself Run Command then what is difference why we use two  diffrent command
+# so both command  has differenct  purpose ke liye use hote hain.
+# Main simple mein explain  krta hu ...
+# RUN command 
+# Runs when building the image (docker build).
+# Creates a new layer in the image.
+# Used for installing packages, setting up environment.
+# for Example:
+# RUN pip install -r requirements.txt
+#  Ye sirf image build time par chalega.
+# and CMD command 
+# Runs when starting the container (docker run).
+# Tells Docker which command to execute by default inside the container.
+# Only one CMD is used (last one if multiple).
+# Example:
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Ye container start hone par chalega.
